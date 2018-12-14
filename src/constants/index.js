@@ -1,0 +1,1 @@
+export const LOADED_FILE = 'LOADED_FILE';
