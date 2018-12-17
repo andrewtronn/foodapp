@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './components/Header';
 import './App.css';
-import {getFile, getLocation, getLocationDetails} from './actions'; 
+import { getFile, getLocation, getLocationDetails } from './actions';
 
 
 class App extends Component {
@@ -19,52 +19,48 @@ class App extends Component {
 
   }
   render() {
-    return(
+    return (
       <div className="App">
         <header className="App-header">
-        <Header />
+          <Header />
 
         </header>
-        <div><input 
-        type="text" 
-        value={this.state.searchInput} 
-        onChange={(e)=>
-          {this.setState({searchInput :e.target.value})}
-          } />
-        <button onClick={() => {
-                  this.props.getFile(this.state.searchInput);
-                }}>Click</button>
-        <input 
-        type="text" 
-        value={this.state.locationInput} 
-        onChange={(e)=>
-          {this.setState({locationInput :e.target.value})}
-          } />
-        <button onClick={() => {
-                  this.props.getLocation(this.state.locationInput);
-                }}>GET LOCATION</button>
-        <button onClick={() => {
-                  this.props.getLocationDetails(this.props.entityID, this.props.entityType);
-                }}>GET LOCATION DETAILS</button>
-              </div>
-              </div>
+        <div>
+          <input  type="text"
+                  value={this.state.searchInput}
+                  onChange={(e) => { this.setState({ searchInput: e.target.value }) }
+                  } />
+          <button onClick={() => {
+            this.props.getFile(this.state.searchInput);
+          }}>Click</button>
+          <input
+            type="text"
+            value={this.state.locationInput}
+            onChange={(e) => { this.setState({ locationInput: e.target.value }) }
+            } />
+          <button onClick={() => {
+            this.props.getLocation(this.state.locationInput);
+          }}>GET LOCATION</button>
+          <button onClick={() => {
+            this.props.getLocationDetails();
+          }}>GET LOCATION DETAILS</button>
+        </div>
+      </div>
     )
-}
+  }
 }
 
 const mapPropstoState = state => ({
   data: state.data,
   locationData: state.locationData,
-  locationDetails: state.locationDetails,
-  entityID: state.entityID,
-  enitytyType: state.entityType
+  locationDetails: state.locationDetails
 });
 
 
 const mapPropsToDispatch = dispatch => ({
   getFile: (searchInput) => dispatch(getFile(searchInput)),
   getLocation: (locationInput) => dispatch(getLocation(locationInput)),
-  getLocationDetails: (entityID, entityType) => dispatch(getLocationDetails(entityID, entityType)),
+  getLocationDetails: () => dispatch(getLocationDetails()),
 
 
 });

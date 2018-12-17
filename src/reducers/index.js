@@ -5,8 +5,6 @@ const initialState = {
     data: {},
     locationData: {},
     locationDetails: {},
-    entityID:'',
-    entityType: ''
 }
 
 
@@ -31,7 +29,7 @@ const rootReducer = (state = initialState, action) => {
         case LOADED_LOCATION_DETAILS:
             updatedState = {
                 ...state,
-                locationDetails: action.payload
+                locationDetails: action.details,
             }
             return updatedState;
         default:
