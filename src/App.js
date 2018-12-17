@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Header from './components/Header';
 import './App.css';
+import {getFile} from './actions'; 
 
 
 
@@ -8,6 +10,10 @@ import './App.css';
 
 
 class App extends Component {
+
+  // componentDidMount() {
+  //   getFile
+  // }
   render() {
     return (
       <div className="App">
@@ -15,12 +21,17 @@ class App extends Component {
         <Header />
 
         </header>
-      </div>
-    );
-  }
+        <button onClick={() => {
+                  this.props.getFile();
+                }}>Click</button>
+              </div>
+    )
+}
 }
 
 
+const mapPropsToDispatch = dispatch => ({
+  getFile: () => dispatch(getFile())
+});
 
-
-export default App;
+export default connect(null, mapPropsToDispatch)(App);
