@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './components/Header';
+
 import './App.css';
 import {getFile} from './actions'; 
 
+import axios from 'axios';
+
+
+import './App.css';
 
 
 
+var config = {
+    headers: {'X-My-Custom-Header': 'e72ea3a9fe87325d55dd0b6d7b2a010f'}
+   };
 
 
 class App extends Component {
 
-  // componentDidMount() {
-  //   getFile
-  // }
+
+
   render() {
     return (
       <div className="App">
