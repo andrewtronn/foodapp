@@ -10,10 +10,15 @@ import {getFile} from './actions';
 
 
 class App extends Component {
+  state = {
+    searchInput: ''
+  }
 
-  // componentDidMount() {
-  //   getFile
-  // }
+
+
+  componentDidMount() {
+    getFile()
+  }
   render() {
     return (
       <div className="App">
@@ -21,8 +26,14 @@ class App extends Component {
         <Header />
 
         </header>
+        <input 
+        type="text" 
+        value={this.state.searchInput} 
+        onChange={(e)=>
+          {this.setState({searchInput :e.target.value})}
+          } />
         <button onClick={() => {
-                  this.props.getFile();
+                  this.props.getFile(this.state.searchInput);
                 }}>Click</button>
               </div>
     )
@@ -31,7 +42,7 @@ class App extends Component {
 
 
 const mapPropsToDispatch = dispatch => ({
-  getFile: () => dispatch(getFile())
+  getFile: (searchInput) => dispatch(getFile(searchInput))
 });
 
 export default connect(null, mapPropsToDispatch)(App);
