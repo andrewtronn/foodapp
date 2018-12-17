@@ -2,31 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './components/Header';
 import './App.css';
-import {getFile} from './actions'; 
-
-
-
-
+import {getFile, getLocation, getLocationDetails} from './actions'; 
 
 
 class App extends Component {
   state = {
-    searchInput: ''
+    searchInput: '',
+    locationInput: '',
   }
 
 
 
   componentDidMount() {
-    getFile()
+    getFile();
+    getLocation(this.state.locationInput)
+
   }
   render() {
-    return (
+    return(
       <div className="App">
         <header className="App-header">
         <Header />
 
         </header>
-        <input 
+        <div><input 
         type="text" 
         value={this.state.searchInput} 
         onChange={(e)=>
@@ -35,14 +34,39 @@ class App extends Component {
         <button onClick={() => {
                   this.props.getFile(this.state.searchInput);
                 }}>Click</button>
+        <input 
+        type="text" 
+        value={this.state.locationInput} 
+        onChange={(e)=>
+          {this.setState({locationInput :e.target.value})}
+          } />
+        <button onClick={() => {
+                  this.props.getLocation(this.state.locationInput);
+                }}>GET LOCATION</button>
+        <button onClick={() => {
+                  this.props.getLocationDetails(this.props.entityID, this.props.entityType);
+                }}>GET LOCATION DETAILS</button>
+              </div>
               </div>
     )
 }
 }
 
-
-const mapPropsToDispatch = dispatch => ({
-  getFile: (searchInput) => dispatch(getFile(searchInput))
+const mapPropstoState = state => ({
+  data: state.data,
+  locationData: state.locationData,
+  locationDetails: state.locationDetails,
+  entityID: state.entityID,
+  enitytyType: state.entityType
 });
 
-export default connect(null, mapPropsToDispatch)(App);
+
+const mapPropsToDispatch = dispatch => ({
+  getFile: (searchInput) => dispatch(getFile(searchInput)),
+  getLocation: (locationInput) => dispatch(getLocation(locationInput)),
+  getLocationDetails: (entityID, entityType) => dispatch(getLocationDetails(entityID, entityType)),
+
+
+});
+
+export default connect(mapPropstoState, mapPropsToDispatch)(App);

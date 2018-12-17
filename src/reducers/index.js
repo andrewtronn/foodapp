@@ -1,8 +1,12 @@
-import { LOADED_FILE } from './../constants'
+import { LOADED_FILE, LOADED_LOCATION, LOADED_LOCATION_DETAILS } from '../constants'
 
 
 const initialState = {
-    data:{}
+    data: {},
+    locationData: {},
+    locationDetails: {},
+    entityID:'',
+    entityType: ''
 }
 
 
@@ -16,6 +20,18 @@ const rootReducer = (state = initialState, action) => {
             updatedState = {
                 ...state,
                 data: action.payload
+            }
+            return updatedState;
+        case LOADED_LOCATION:
+            updatedState = {
+                ...state,
+                locationData: action.payload
+            }
+            return updatedState;
+        case LOADED_LOCATION_DETAILS:
+            updatedState = {
+                ...state,
+                locationDetails: action.payload
             }
             return updatedState;
         default:
