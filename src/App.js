@@ -45,7 +45,7 @@ class App extends Component {
       ...this.state,
       user: {
         ...this.state.user,
-        username: e.target.value
+        userName: e.target.value
       }
     })
   }
@@ -54,7 +54,7 @@ class App extends Component {
     this.setState({
     ...this.state,
     passWord: {
-      ...this.state.passWord,
+      ...this.state.user,
       passWord: e.target.value
     }
 
@@ -144,10 +144,9 @@ const mapPropstoState = state => ({
 const mapPropsToDispatch = dispatch => ({
   getFile: (searchInput) => dispatch(getFile(searchInput)),
   getLocation: (locationInput) => dispatch(getLocation(locationInput)),
-  getLocationDetails: (entityID, entityType) => dispatch(getLocationDetails(entityID, entityType)),
+  getLocationDetails: (entityID, entityType) => dispatch(getLocationDetails(entityID, entityType))
 
 
-  getFile: (searchInput) => dispatch(getFile(searchInput))
 });
 
 export default connect(mapPropstoState, mapPropsToDispatch)(App);
