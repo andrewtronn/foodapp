@@ -1,68 +1,47 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Header from './components/Header';
 import './App.css';
-import { getFile, getLocation, getLocationDetails } from './actions';
+import React, { Component } from 'react';
+import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+import Home from './components/Home';
+import Favorites from './components/Favorites';
+import Register from './components/Register';
+import Search from './components/Search';
+import LoginScreen from './components/LoginScreen';
+
 
 
 class App extends Component {
   state = {
-    searchInput: '',
-    locationInput: '',
   }
 
-
-
-  componentDidMount() {
-    getFile();
-    getLocation(this.state.locationInput)
-
-  }
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Header />
-
-        </header>
-        <div>
-          <input  type="text"
-                  value={this.state.searchInput}
-                  onChange={(e) => { this.setState({ searchInput: e.target.value }) }
-                  } />
-          <button onClick={() => {
-            this.props.getFile(this.state.searchInput);
-          }}>Click</button>
-          <input
-            type="text"
-            value={this.state.locationInput}
-            onChange={(e) => { this.setState({ locationInput: e.target.value }) }
-            } />
-          <button onClick={() => {
-            this.props.getLocation(this.state.locationInput);
-          }}>GET LOCATION</button>
-          <button onClick={() => {
-            this.props.getLocationDetails();
-          }}>GET LOCATION DETAILS</button>
-        </div>
+        <Navbar />
+        <Header />
+                <div className="main-container">
+                    <Switch>  
+                        <Route exact path="/" render={() => this.props.isLoggedIn ? <Redirect to='/favorites' /> : <Home/>}/>
+                        <Route path="/home" render={(renderProps) => <Home/>}/>
+                        <Route path="/loginscreen" render={(renderProps) => <LoginScreen/>}/>
+                        <Route path="/favorites" render={(renderProps) => <Favorites />} />
+                        <Route path="/register" render={(renderProps) => <Register/>} />
+                        <Route path="/search" render={(renderProps) => <Search />} />
+                    </Switch>
+                </div>
       </div>
     )
   }
 }
 
-const mapPropstoState = state => ({
-  data: state.data,
-  locationData: state.locationData,
-  locationDetails: state.locationDetails
+
+const mapStatetoProps = state => ({
+  isLoggedIn: state.isLoggedIn
 });
 
 
-const mapPropsToDispatch = dispatch => ({
-  getFile: (searchInput) => dispatch(getFile(searchInput)),
-  getLocation: (locationInput) => dispatch(getLocation(locationInput)),
-  getLocationDetails: () => dispatch(getLocationDetails()),
 
-
-});
-
-export default connect(mapPropstoState, mapPropsToDispatch)(App);
+export default withRouter(connect(mapStatetoProps)(App));

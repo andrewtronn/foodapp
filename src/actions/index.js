@@ -1,4 +1,4 @@
-import { LOADED_FILE, LOADED_LOCATION, LOADED_LOCATION_DETAILS } from '../constants'
+import { LOADED_FILE, LOADED_LOCATION, LOADED_LOCATION_DETAILS, NEW_USER, VALID_LOGIN, VALID_LOGOUT} from '../constants'
 
 import axios from 'axios';
 
@@ -31,9 +31,7 @@ export const getLocation = (locationInput) => dispatch => {
         })
 }
 
-export const getLocationDetails = () => dispatch => {
-
-     
+export const getLocationDetails = () => dispatch => {  
 
     axios.get(`https://developers.zomato.com/api/v2.1/location_details?entity_id=${entityID}&entity_type=${entityType}`, config)
         .then(res => {
@@ -52,9 +50,19 @@ export const getLocationDetails = () => dispatch => {
                 console.log(restaurant.restaurant.name)
             }
 
-
-
-
-
         })
 }
+
+export const newUser = (user) => ({
+    type: NEW_USER,
+    payload: user
+})
+
+export const logIn = (user) => ({
+    type: VALID_LOGIN,
+    payload:user
+})
+
+export const logOut = () => ({
+    type: VALID_LOGOUT
+})
