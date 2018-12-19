@@ -1,7 +1,7 @@
 export const LOADED_FILE = 'LOADED_FILE';
 export const LOADED_LOCATION = 'LOADED_LOCATION';
 export const LOADED_LOCATION_DETAILS = 'LOADED_LOCATION_DETAILS';
-export const NEW_USER = 'NEW_USER';
+export const ADD_USER = 'ADD_USER';
 export const VALID_LOGIN = 'VALID_LOGIN';
 export const VALID_LOGOUT = 'VALID_LOGOUT';
 

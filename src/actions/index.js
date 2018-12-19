@@ -1,4 +1,4 @@
-import { LOADED_FILE, LOADED_LOCATION, LOADED_LOCATION_DETAILS, NEW_USER, VALID_LOGIN, VALID_LOGOUT} from '../constants'
+import { LOADED_FILE, LOADED_LOCATION, LOADED_LOCATION_DETAILS, ADD_USER, VALID_LOGIN, VALID_LOGOUT} from '../constants'
 
 import axios from 'axios';
 
@@ -53,8 +53,10 @@ export const getLocationDetails = () => dispatch => {
         })
 }
 
-export const newUser = (user) => ({
-    type: NEW_USER,
+
+
+export const addUser = (user) => ({
+    type: ADD_USER,
     payload: user
 })
 

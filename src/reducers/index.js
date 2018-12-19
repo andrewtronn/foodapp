@@ -1,4 +1,4 @@
-import { LOADED_FILE, LOADED_LOCATION, LOADED_LOCATION_DETAILS, NEW_USER, VALID_LOGIN, VALID_LOGOUT} from '../constants'
+import { LOADED_FILE, LOADED_LOCATION, LOADED_LOCATION_DETAILS, ADD_USER, VALID_LOGIN, VALID_LOGOUT} from '../constants'
 
 
 const initialState = {
@@ -9,27 +9,26 @@ const initialState = {
           password: 'admin'
         }
       ],
-    user: [
-        {
-          username: "",
-          password: "",
-        }
-        ],
     data: {},
     locationData: {},
     locationDetails: {}
 }
-
+const addUser = (state, user) => {
+    let newState = {
+    ...state,
+    users: [...state.users, user]
+    }
+    return newState;
+}
    
 
 const logInCheck = (user, state) => {
     for (let x of state.users) {
             if (x.username === user.username && x.password === user.password) {
             return true;
-        } else{
-        return false;
         }
     }
+    return false;
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -54,11 +53,8 @@ const rootReducer = (state = initialState, action) => {
                 locationDetails: action.details,
             }
             return updatedState;
-        case NEW_USER:
-            updatedState = {
-                ...state,
-                user: action.payload,
-            }
+        case ADD_USER:
+                updatedState = addUser(state, action.payload);
             return updatedState;
         case VALID_LOGIN:
             if (logInCheck(action.payload, state)) {

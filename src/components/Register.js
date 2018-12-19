@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { newUser} from './../actions';
+import { addUser} from './../actions';
 
 
 class Register extends Component {
@@ -35,8 +35,8 @@ class Register extends Component {
 
         onSubmit = (e) => {
                 e.preventDefault();
-                this.props.newUser(this.state.user);
-                this.props.users.push(this.state.user)git
+                console.log(this.state.user.username)
+                this.props.addUser(this.state.user);
                 this.setState({
                 ...this.state,
                 user: {
@@ -52,7 +52,7 @@ class Register extends Component {
                 return (
                 <div>
                         <h1>Register User</h1>
-                        <form onSubmit={(e) => this.state.onSubmit(e)}>
+                        <form onSubmit={(e) => this.onSubmit(e)}>
                                 <input  className="form-control"
                                         placeholder="username"
                                         value={this.state.user.username} 
@@ -77,7 +77,8 @@ const mapStatetoProps = state => ({
       });
 
 const mapPropsToDispatch = dispatch => ({
-        newUser: (user) => dispatch(newUser(user))
+        addUser: (user) => dispatch(addUser(user))
+
 })
 
 export default connect(mapStatetoProps, mapPropsToDispatch)(Register);
