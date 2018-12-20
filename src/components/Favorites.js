@@ -5,7 +5,7 @@ import {logOut} from './../actions';
 
 const Favorites = (props) => {
     return(
-        <div className="head-container">
+        <div className="head-container Register">
             {props.isLoggedIn === false  && (<Redirect to="/loginscreen"/>) }
             <h1>Favorites</h1>
             <button 

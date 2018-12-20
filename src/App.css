@@ -1,0 +1,137 @@
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+.backgroundColor {
+    background-color: rgb(223, 223, 223);
+}
+.App {
+    background-color: rgb(223, 223, 223);
+}
+.homerow {
+    display: flex;
+}
+
+.maintextColor {
+    background-color: rgb(142, 192, 212);
+    margin: 0;
+}
+
+
+.text-center {
+    text-align: center
+}
+
+.headerfont {
+    font-family: 'Lobster'
+}
+
+.quoteText {
+    font-family: 'Yellowtail'
+}
+
+.carousel-image {
+    height: 200px;
+    width: 200px;
+    padding: 20px 0;
+    border-radius: 30px 30px 30px 30px
+    
+  }
+
+
+.Register {
+    height: 100vh
+}
+
+.nav {
+    background-color: rgb(1, 5, 17)! important;
+     
+}
+
+.item {
+    color: white;
+    padding: 20px;
+ 
+}
+
+.navpad {
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+}
+
+.picRad {
+    border-radius: 30px;
+}
+
+.searchpic {
+
+    border-radius: 30px;
+    height: 60%;
+    width: 60%;
+}
+
+.appRegister {
+  background: url('https://www.thespruceeats.com/thmb/Ak67WHs1t-lxgI0k_FyRONIviso=/3264x2019/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-686769861-59fa95904e4f7d001af7d0d7.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.login {
+    background: black;
+    opacity: .85;
+    padding: 30px;
+    border-radius: 30px;
+  }
+  
+.quoteBox {
+    background: black;
+    opacity: .90;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+.picBack {
+    background: url('https://santabarbaraca.com/content/uploads/2015/08/restaurants-santa-barbara.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.homePic {
+    background: url('http://www.trainharder.com/wp-content/uploads/2017/03/foodpic.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.logo {
+    display: flex;
+    margin-left: auto;
+    padding: 10px;
+    font-family: 'Lobster';
+    color: white;
+}

@@ -50,23 +50,25 @@ class Register extends Component {
         
         render() {
                 return (
-                <div>
-                        <h1>Register User</h1>
-                        <form onSubmit={(e) => this.onSubmit(e)}>
-                                <input  className="form-control"
-                                        placeholder="username"
-                                        value={this.state.user.username} 
-                                        onChange={(e)=>{ this.setUsername(e) }
-                                        } />
-                                <input  className="form-control"
-                                        placeholder="password"
-                                        value={this.state.user.password} 
-                                        onChange={(e)=>{ this.setPassword(e) }
-                                        } />
-                                <button className="btn btn-primary"
-                                        type = "submit"
-                                >Submit</button>          
-                        </form>
+                <div className="appRegister ">
+                        <div className="login">
+                                <h1>Register User</h1>
+                                <form onSubmit={(e) => this.onSubmit(e)}>
+                                        <input  className="form-control"
+                                                placeholder="username"
+                                                value={this.state.user.username} 
+                                                onChange={(e)=>{ this.setUsername(e) }
+                                                } />
+                                        <input  className="form-control"
+                                                placeholder="password"
+                                                value={this.state.user.password} 
+                                                onChange={(e)=>{ this.setPassword(e) }
+                                                } />
+                                        <button className="btn btn-primary"
+                                                type = "submit"
+                                        >Submit</button>          
+                                </form>
+                        </div>
                 </div>
                 )
         }

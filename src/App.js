@@ -21,7 +21,6 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <Header />
                 <div className="main-container">
                     <Switch>  
                         <Route exact path="/" render={() => this.props.isLoggedIn ? <Redirect to='/favorites' /> : <Home/>}/>

@@ -22,29 +22,33 @@ class LoginScreen extends Component {
         
     render() {
         return(
-        <div>
-            {this.props.isLoggedIn  && (<Redirect to="/favorites"/>) }
-            <h1>Login page</h1>
-            <div className="form-group">
-                <label htmlFor="">Username</label>
-                <input 
-                    type="text" 
-                    className="form-control" 
-                    value={this.state.username}
-                    onChange={e => this.setState({ username: e.target.value })}/>
+        <div className="Register">
+            <div className= "appRegister" >
+                <div className ="login">
+                    {this.props.isLoggedIn  && (<Redirect to="/favorites"/>) }
+                    <h1>Login Page</h1>
+                    <div className="form-group">
+                        <label htmlFor="">Username</label>
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            value={this.state.username}
+                            onChange={e => this.setState({ username: e.target.value })}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="">Password</label>
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            value={this.state.password}
+                            onChange={e => this.setState({ password: e.target.value })}/>
+                    </div>
+                    <button 
+                        className="btn btn-outline-primary"
+                        onClick={() => this.fullLogin() }>Login
+                    </button>
+                </div>
             </div>
-            <div className="form-group">
-                <label htmlFor="">Password</label>
-                <input 
-                    type="text" 
-                    className="form-control" 
-                    value={this.state.password}
-                    onChange={e => this.setState({ password: e.target.value })}/>
-            </div>
-            <button 
-                className="btn btn-outline-primary"
-                onClick={() => this.fullLogin() }>Login
-            </button>
         </div> 
         )
     }
