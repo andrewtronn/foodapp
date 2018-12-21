@@ -22,34 +22,34 @@ class LoginScreen extends Component {
         
     render() {
         return(
-        <div className="Register">
-            <div className= "appRegister" >
-                <div className ="login">
+            <div className= "loginPIC" >
+                <div className ="login-box">
                     {this.props.isLoggedIn  && (<Redirect to="/favorites"/>) }
-                    <h1>Login Page</h1>
+                    <h1 className="login-font">Login Page</h1>
                     <div className="form-group">
-                        <label htmlFor="">Username</label>
                         <input 
-                            type="text" 
-                            className="form-control" 
+                            type="text"
+                            placeholder="Username"
+                            className="form-control login-element" 
                             value={this.state.username}
                             onChange={e => this.setState({ username: e.target.value })}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Password</label>
                         <input 
-                            type="text" 
-                            className="form-control" 
+                            type="text"
+                            placeholder="Password"
+                            className="form-control login-element" 
                             value={this.state.password}
                             onChange={e => this.setState({ password: e.target.value })}/>
                     </div>
+                    <div className="form-group">
                     <button 
-                        className="btn btn-outline-primary"
+                        className="btn btn-outline-primary form-control login-element"
                         onClick={() => this.fullLogin() }>Login
                     </button>
+                    </div>
                 </div>
             </div>
-        </div> 
         )
     }
 }

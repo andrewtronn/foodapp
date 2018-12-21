@@ -4,7 +4,7 @@ import chickenAndTatters from '../assets/chickenAndTatters.jpg'
 class Home extends Component {
     render() {
         return(
-            <div className = "home-container">
+            <div>
                     <div > 
                         <div className="homePic">   
                                 <div className ="quoteBox">

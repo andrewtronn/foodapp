@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Navbar from './components/Navbar';
-import Header from './components/Header';
 import Home from './components/Home';
 import Favorites from './components/Favorites';
 import Register from './components/Register';

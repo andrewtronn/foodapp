@@ -50,23 +50,25 @@ class Register extends Component {
         
         render() {
                 return (
-                <div className="appRegister ">
-                        <div className="login">
+                <div className="registerPIC">
+                        <div className="register-box">
                                 <h1>Register User</h1>
                                 <form onSubmit={(e) => this.onSubmit(e)}>
-                                        <input  className="form-control"
-                                                placeholder="username"
-                                                value={this.state.user.username} 
-                                                onChange={(e)=>{ this.setUsername(e) }
-                                                } />
-                                        <input  className="form-control"
-                                                placeholder="password"
-                                                value={this.state.user.password} 
-                                                onChange={(e)=>{ this.setPassword(e) }
-                                                } />
-                                        <button className="btn btn-primary"
-                                                type = "submit"
-                                        >Submit</button>          
+                                        <div class="form-group">
+                                                <input  className="form-control register-element"
+                                                        placeholder="username"
+                                                        value={this.state.user.username} 
+                                                        onChange={(e)=>{ this.setUsername(e) }
+                                                        } />
+                                                <input  className="form-control register-element"
+                                                        placeholder="password"
+                                                        value={this.state.user.password} 
+                                                        onChange={(e)=>{ this.setPassword(e) }
+                                                        } />
+                                                <button className="btn btn-primary form-control register-element"
+                                                        type = "submit"
+                                                >Register</button>
+                                        </div>          
                                 </form>
                         </div>
                 </div>
